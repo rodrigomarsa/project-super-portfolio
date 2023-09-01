@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Página de perfil
+{% endblock %}
+
+{% block content %}
+    <main class="profile-container">
+      <h1>{{ profile.name }}</h1>
+      <p>{{ profile.github }}</p>
+      <p>{{ profile.linkedin }}</p>
+      <p>{{ profile.bio }}</p>
+    </main>
+{% endblock %}
