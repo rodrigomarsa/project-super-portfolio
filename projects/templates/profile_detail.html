@@ -7,9 +7,26 @@
 
 {% block content %}
     <main class="profile-container">
-      <h1>{{ profile.name }}</h1>
-      <p>{{ profile.github }}</p>
-      <p>{{ profile.linkedin }}</p>
-      <p>{{ profile.bio }}</p>
+      <div class="profile">
+        <h1>{{ profile.name }}</h1>
+        <p>{{ profile.github }}</p>
+        <p>{{ profile.linkedin }}</p>
+        <p>{{ profile.bio }}</p>
+      </div>
+      {% for project in projects %}
+        <div class="projects">
+          <h2>{{ project.name }}</h2>
+          <p>{{ project.description }}</p>
+          <p>{{ project.github_url }}</p>
+          <p>{{ project.keyword }}</p>
+          <p>{{ project.key_skill }}</p>
+        </div>
+      {% endfor %}
+      {% for certificate in certificates %}
+        <div class="certificates">
+          <h2>{{ certificate.name }}</h2>
+          <p>{{ certificate.certifying_institution }}</p>
+        </div>
+      {% endfor %}
     </main>
 {% endblock %}

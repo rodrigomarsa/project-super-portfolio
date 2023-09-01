@@ -23,7 +23,7 @@ class CertificateSerializer(serializers.ModelSerializer):
 class NestedCertificateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Certificate
-        fields = ["id", "name", "profiles"]
+        fields = ["id", "name"]
 
 
 class CertifyingInstitutionSerializer(serializers.ModelSerializer):

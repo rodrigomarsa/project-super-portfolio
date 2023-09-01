@@ -28,16 +28,17 @@ class ProfileViewSet(viewsets.ModelViewSet):
         if request.method == "GET":
             get_profile_id = kwargs.get("pk")
             profile = Profile.objects.get(id=get_profile_id)
-            # busque o id do perfil
-            # crie uma variável para guardar esse perfil
+
+            context = {
+                "profile": profile,
+                "projects": profile.projects.all(),
+                "certificates": profile.certificates.all(),
+            }
 
             return render(
                 request,
                 "profile_detail.html",
-                {"profile": profile},
-                # passe os parâmetros necessários para o template:
-                # a requisição, o caminho do template e um dict com dados
-                # para o template
+                context,
             )
         return super().retrieve(request, *args, **kwargs)
 
